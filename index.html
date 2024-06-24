@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rod and Tube Arrangement</title>
+    <style>
+        #controls {
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+        }
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label for="tubeDiameter">Tube Diameter (mm):</label>
+        <input type="number" id="tubeDiameter" value="50">
+        <label for="rodDiameter">Rod Diameter (mm):</label>
+        <input type="number" id="rodDiameter" value="7">
+        <label for="extraSpace">Extra Space (mm):</label>
+        <input type="number" id="extraSpace" value="1">
+        <button onclick="draw()">Draw</button>
+    </div>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <script src="app.js"></script>
+</body>
+</html>
