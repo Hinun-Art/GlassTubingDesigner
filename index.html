@@ -7,11 +7,19 @@
     <style>
         body {
             font-size: 200%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #container {
+            text-align: center;
         }
         #controls {
-            display: flex;
-            flex-direction: column;
-            width: 400px;
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 20px;
         }
         canvas {
             border: 1px solid black;
@@ -20,6 +28,7 @@
         }
         .input-row {
             display: flex;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 10px;
         }
@@ -30,37 +39,43 @@
             flex: 2;
             font-size: 1em;
         }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+        }
     </style>
 </head>
 <body>
-    <div id="controls">
-        <div class="input-row">
-            <label for="tubeDiameter">Tube Diameter (mm):</label>
-            <input type="number" id="tubeDiameter" value="50" step="0.01">
+    <div id="container">
+        <div id="controls">
+            <div class="input-row">
+                <label for="tubeDiameter">Tube Diameter (mm):</label>
+                <input type="number" id="tubeDiameter" value="50" step="0.01">
+            </div>
+            <div class="input-row">
+                <label for="rodDiameter">Rod Diameter (mm):</label>
+                <input type="number" id="rodDiameter" value="7" step="0.01">
+            </div>
+            <div class="input-row">
+                <label for="extraSpace">Extra Space (mm):</label>
+                <input type="number" id="extraSpace" value="1" step="0.01">
+            </div>
+            <div class="input-row">
+                <label for="numRods">Number of Rods:</label>
+                <input type="number" id="numRods" value="21" step="1">
+            </div>
+            <div class="input-row">
+                <label>Overall Diameter of Assembly (mm):</label>
+                <span id="overallDiameter">-</span>
+            </div>
+            <div class="input-row">
+                <label>Gap/Overlap (mm):</label>
+                <span id="gapOverlap">-</span>
+            </div>
+            <button onclick="draw()">Draw</button>
         </div>
-        <div class="input-row">
-            <label for="rodDiameter">Rod Diameter (mm):</label>
-            <input type="number" id="rodDiameter" value="7" step="0.01">
-        </div>
-        <div class="input-row">
-            <label for="extraSpace">Extra Space (mm):</label>
-            <input type="number" id="extraSpace" value="1" step="0.01">
-        </div>
-        <div class="input-row">
-            <label for="numRods">Number of Rods:</label>
-            <input type="number" id="numRods" value="21" step="1">
-        </div>
-        <div class="input-row">
-            <label>Overall Diameter of Assembly (mm):</label>
-            <span id="overallDiameter">-</span>
-        </div>
-        <div class="input-row">
-            <label>Gap/Overlap (mm):</label>
-            <span id="gapOverlap">-</span>
-        </div>
-        <button onclick="draw()">Draw</button>
+        <canvas id="canvas" width="1000" height="1000"></canvas>
     </div>
-    <canvas id="canvas" width="1000" height="1000"></canvas>
     <script src="app.js"></script>
 </body>
 </html>
